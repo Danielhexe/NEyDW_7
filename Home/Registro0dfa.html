@@ -4,23 +4,23 @@
 <!DOCTYPE html>
 <html ng-app="shakeshack">
 
-<!-- Mirrored from ordena.shakeshack.com.mx/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:57:17 GMT -->
+<!-- Mirrored from ordena.shakeshack.com.mx/Home/Registro?Length=4 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:58:16 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
+    <link rel="icon" href="../favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
     <title>Shake Shack - ShakeShack desde 2004 </title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ml5FRzzu387WAbaL4kavaVjjHFijSj0"></script>
 
-    <script src='bundles/jquery3e02?v=YafKYnEqZvAZgO-w5qWfpillXpe7eqhcIIGeGmYTj9o1'></script>
+    <script src='../bundles/jquery3e02?v=YafKYnEqZvAZgO-w5qWfpillXpe7eqhcIIGeGmYTj9o1'></script>
 
-    <link href="Content/cssd33f.css?v=QeDAr9-kYh7sZSiVCW-PEBzSaqxkafQ6dreFmRLdMrc1" rel="stylesheet"/>
+    <link href="../Content/cssd33f.css?v=QeDAr9-kYh7sZSiVCW-PEBzSaqxkafQ6dreFmRLdMrc1" rel="stylesheet"/>
 
-    <link href="Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../Content/owl.carousel.min.css" rel="stylesheet" />
     
 
     <style>
@@ -51,10 +51,10 @@
     <div class="mod producto-cust edz-300" id="family-diy-sugerencia" style="display:none">
         <div class="mod-content cust-prod">
 
-            <button class="close-mod" ng-click="close_modal()"><img src="Assets/close-icon.png" /></button>
+            <button class="close-mod" ng-click="close_modal()"><img src="../Assets/close-icon.png" /></button>
             <div class="cust-it" id="grupo_opciones_sugerencia">
                 <div class="product-ph" id="img_s">
-                    <img style="width: 100%;" src="%7b%7bproducto_modal.html" />
+                    <img style="width: 100%;" src="../%7b%7bproducto_modal.html" />
                 </div>
                 <div class="customize-content-options">
                     <div class="content-options-info">
@@ -152,7 +152,7 @@
     <div class="mod" id="bag" style="display:none;">
         <div class="mod-content bolsa">
             <div>
-                <button class="close-mod" ng-click="closeBag()"><img src="Assets/close-icon.png" /></button>
+                <button class="close-mod" ng-click="closeBag()"><img src="../Assets/close-icon.png" /></button>
                 <div class="shack-info" ng-if="existe_pedido()">
                     <div class="py-3">
                         <span>Recoger en:</span>
@@ -178,14 +178,14 @@
 
                         </div>
                         <div class="precio"><span>${{producto.totales.total}}</span></div>
-                        <div><button class="borrar" ng-click="eliminar_producto(pedido, producto)"><img src="Assets/close-icon.png" alt="eliminar de bolsa" /></button></div>
+                        <div><button class="borrar" ng-click="eliminar_producto(pedido, producto)"><img src="../Assets/close-icon.png" alt="eliminar de bolsa" /></button></div>
                     </div>
 
                 </div>
                 <div class="bolsa-vacia" ng-if="!existe_pedido()">
                     <div>
                         <h1>
-                            <img src="Assets/Bolsa-vacia.png" alt="Tu bolsa está vacía" />
+                            <img src="../Assets/Bolsa-vacia.png" alt="Tu bolsa está vacía" />
                             <span style="display: block;">Tu bolsa está vacía</span>
                         </h1>
                         <p>Empieza agregando algo delicioso</p>
@@ -196,7 +196,7 @@
                     <p>Complementa tu comida</p>
 
                     <button class="extra-item" ng-repeat="producto in sugerencias" ng-click="show_modal_sugerencia(producto)" ng-if="!producto.deshabilitado">
-                        <img src="%7b%7bproducto.html" />
+                        <img src="../%7b%7bproducto.html" />
                         <div class="extra-item-text">
                             <h3>{{producto.nombre}}</h3>
                             <span>{{producto.descripcion |limitTo:133}} <span ng-show="producto.descripcion.length > 133">...</span></span>
@@ -221,17 +221,17 @@
     <!--Inicio:Header-->
     <div class="top-menu-order" ui-view="header" data-ga="header">
         <div class="logo-wrapper">
-            <a class="menu-logo navbar-brand" href="#"><img src="Assets/ShakeShack_LOGO.png" /></a>
+            <a class="menu-logo navbar-brand" href="#"><img src="../Assets/ShakeShack_LOGO.png" /></a>
         </div>
         <div class="menu-order-actions">
             <nav class="">
                 <div class="ul-tp">
                     <div class="ul-tp-sub">
-                        <div ng-click="botonSeleccionado('inicio-sesión')" class="li-tp"><a href="Home/Contact.html">Inicia Sesi&#243;n</a></div>
-                        <div ng-click="botonSeleccionado('ver-cuenta')" class="li-tp" style="display: none;"><a href="Home/About.html">Cuenta</a></div>
+                        <div ng-click="botonSeleccionado('inicio-sesión')" class="li-tp"><a href="Contact.html">Inicia Sesi&#243;n</a></div>
+                        <div ng-click="botonSeleccionado('ver-cuenta')" class="li-tp" style="display: none;"><a href="About.html">Cuenta</a></div>
                     </div>
                     <div class="li-tp">
-                        <button ng-click="botonSeleccionado('ver-carrito')" id="menu-bolsa" class="btn btn-ss btn-lg">Bolsa  <img src="Assets/bag_30x.png" /></button>
+                        <button ng-click="botonSeleccionado('ver-carrito')" id="menu-bolsa" class="btn btn-ss btn-lg">Bolsa  <img src="../Assets/bag_30x.png" /></button>
                     </div>
                 </div>
             </nav>
@@ -243,6 +243,33 @@
         
 
 
+    <div class="container text-center">
+        <div class="wel-tit">
+            <h2>¡Bienvenido a Shake Shack!</h2>
+            <p>Registrate con nosotros</p>
+        </div>
+
+        <form class="ss-auth-form">
+            <input type="text" name="name" placeholder="Nombre" />
+            <input type="text" name="lastname" placeholder="Apellidos" />
+            <input type="tel" name="phone" placeholder="Teléfono" />
+            <input type="email" name="email" placeholder="Correo Electrónico" required />
+            <input type="password" name="password" placeholder="Contraseña" required />
+            <div class="mb-4 text-left pl-2" style="">
+                <input id="legal-checkbox" type="checkbox" required/>
+                <span><label for="legal-checkbox">Acepto términos y condiciones </label></span>
+            </div>
+            <input type="submit" name="login" value="Registrarme" class="btn btn-ss btn-lg" />
+        </form>
+
+        <div class=""></div>
+
+        <a href="Recuperar_Contrase%c3%b1a0dfa.html?Length=4" style="color: #000; text-decoration: underline;">&#191;Olvidaste tu contrase&#241;a?</a>
+
+    <hr style="max-width: 650px;" />
+
+        <p>¿Ya tienes una cuenta? <span><a class="ss-color" href="Contact0dfa.html?Length=4">Inicia Sesi&#243;n</a></span></p>
+    </div>
     </div>
     <!--Fin: Layout-->
     <!--Inicio: Footer-->
@@ -256,8 +283,8 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-left">
                 <a style="color:white !important;">Descarga nuestra app</a>
-                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://apps.apple.com/us/app/shake-shack-méxico/id6477545493" role="button" aria-disabled="true"><img src="Assets/apple-store.png" style="height:50px; width:auto;" /></a>
-                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://play.google.com/store/apps/details?id=com.shakeshackmx.shackapp" role="button" aria-disabled="true"><img src="Assets/google-play.png" style="height:50px; width: auto;" /></a>
+                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://apps.apple.com/us/app/shake-shack-méxico/id6477545493" role="button" aria-disabled="true"><img src="../Assets/apple-store.png" style="height:50px; width:auto;" /></a>
+                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://play.google.com/store/apps/details?id=com.shakeshackmx.shackapp" role="button" aria-disabled="true"><img src="../Assets/google-play.png" style="height:50px; width: auto;" /></a>
                 <p class="d-block d-sm-none mt-2 mb-4">&reg;2004 - 2024 SHAKE SHACK</p>
             </div>
         </div>
@@ -265,22 +292,22 @@
     </footer>
     <!--Inicio: Footer-->
     <!--Inicio: Scripts-->
-    <link href="Content/cssafter619d.css?v=1qL0Mjov9DoFZS8N-ku00wGwRvTXjXbcmq4cRSxrJGs1" rel="stylesheet"/>
+    <link href="../Content/cssafter619d.css?v=1qL0Mjov9DoFZS8N-ku00wGwRvTXjXbcmq4cRSxrJGs1" rel="stylesheet"/>
 
-    <link href="Content/card-js.min.css" rel="stylesheet" />
+    <link href="../Content/card-js.min.css" rel="stylesheet" />
     
-    <script src='bundles/bootstrapfbc5?v=APNaV4UVBnOtVvyWFX-SYNvrcsepKaH8yU1vdoDjhk41' defer></script>
+    <script src='../bundles/bootstrapfbc5?v=APNaV4UVBnOtVvyWFX-SYNvrcsepKaH8yU1vdoDjhk41' defer></script>
 
-    <script src='bundles/angular8928?v=zcaGpxvCcvqoUubze_AVJ7tIIh_N93rCWRx1DCBq5HQ1' defer></script>
+    <script src='../bundles/angular8928?v=zcaGpxvCcvqoUubze_AVJ7tIIh_N93rCWRx1DCBq5HQ1' defer></script>
 
-    <script src='bundles/principal_94fb?v=hM_bxVvrNq1AADG1UvXsGg-Rl0ApCETlbM3TqG0n8I81' defer></script>
+    <script src='../bundles/principal_94fb?v=hM_bxVvrNq1AADG1UvXsGg-Rl0ApCETlbM3TqG0n8I81' defer></script>
 
-    <script src='bundles/scripts1d7c?v=8-ZoVXegXUuCN9r9QqVmnPCVb2PrX4QvWFzl_htQXuY1' defer></script>
+    <script src='../bundles/scripts1d7c?v=8-ZoVXegXUuCN9r9QqVmnPCVb2PrX4QvWFzl_htQXuY1' defer></script>
 
 
     <script async src="https://www.paypal.com/sdk/js?client-id=AZZT9Wz_6fCb7P5WQZWW4ParLmtdNok6zJkLaQCzg6RUK6KDK2_fooCfHm2Be6azzCbRUbTV_pHRkvks&amp;currency=MXN&amp;commit=true&amp;debug=false&amp;disable-funding=credit,card&amp;locale=es_MX"></script>
     <!-- Tag manager -->
-    <script src="Scripts/owl.carousel.min.js"></script>
+    <script src="../Scripts/owl.carousel.min.js"></script>
 
     <script type='text/javascript'>
         window.dataLayer = window.dataLayer || [];
@@ -354,5 +381,5 @@
 
 </body>
 
-<!-- Mirrored from ordena.shakeshack.com.mx/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:57:41 GMT -->
+<!-- Mirrored from ordena.shakeshack.com.mx/Home/Registro?Length=4 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:58:17 GMT -->
 </html>
