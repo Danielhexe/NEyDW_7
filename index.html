@@ -1,358 +1,376 @@
-
-
-
 <!DOCTYPE html>
-<html ng-app="shakeshack">
 
-<!-- Mirrored from ordena.shakeshack.com.mx/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:57:17 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
-    <title>Shake Shack - ShakeShack desde 2004 </title>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ml5FRzzu387WAbaL4kavaVjjHFijSj0"></script>
+	<link rel="icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
+	<title>Shake Shack - ShakeShack desde 2004 </title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src='bundles/jquery3e02?v=YafKYnEqZvAZgO-w5qWfpillXpe7eqhcIIGeGmYTj9o1'></script>
 
-    <script src='bundles/jquery3e02?v=YafKYnEqZvAZgO-w5qWfpillXpe7eqhcIIGeGmYTj9o1'></script>
+	<link href="Content/cssd33f.css?v=QeDAr9-kYh7sZSiVCW-PEBzSaqxkafQ6dreFmRLdMrc1" rel="stylesheet" />
+	<link href="Content/owl.carousel.min.css" rel="stylesheet" />
 
-    <link href="Content/cssd33f.css?v=QeDAr9-kYh7sZSiVCW-PEBzSaqxkafQ6dreFmRLdMrc1" rel="stylesheet"/>
+	<style>
+		input.ng-touched.ng-invalid~div.invalid-feedback {
+			display: block;
+		}
 
-    <link href="Content/owl.carousel.min.css" rel="stylesheet" />
-    
-
-    <style>
-
-        input.ng-touched.ng-invalid ~ div.invalid-feedback {
-            display: block;
-        }
-
-        input.ng-touched.ng-valid ~ div.invalid-feedback {
-            display: none;
-        }
-    </style>
+		input.ng-touched.ng-valid~div.invalid-feedback {
+			display: none;
+		}
+	</style>
 
 </head>
+
 <body ng-controller="PedidoCtrl">
 
-    <base >
-    <toaster-container toaster-options="{'position-class': 'toast-top-left','close-button':false, 'time-out':{ 'toast-warning': 4000, 'toast-error': 4000 } }"></toaster-container>
+	<base>
+	<toaster-container
+		toaster-options="{'position-class': 'toast-top-left','close-button':false, 'time-out':{ 'toast-warning': 4000, 'toast-error': 4000 } }"></toaster-container>
 
-    <!--Inicio: Modal actualización de información de producto-->
-    <div class="mod producto-cust edz-300" id="family-diy-actualizar" style="display:none">
-        <div class="mod-content cust-prod">
-            <div ui-view="svw-modal-actualizar"></div>
-        </div>
-    </div>
-    <!--Fin: Modal actualización de información de producto-->
-    <!--Inicio: Modal lateral detalle de pedido y sugerencias-->
-    <div class="mod producto-cust edz-300" id="family-diy-sugerencia" style="display:none">
-        <div class="mod-content cust-prod">
+	<!--Inicio: Modal actualización de información de producto-->
+	<div class="mod producto-cust edz-300" id="family-diy-actualizar" style="display:none">
+		<div class="mod-content cust-prod">
+			<div ui-view="svw-modal-actualizar"></div>
+		</div>
+	</div>
+	<!--Fin: Modal actualización de información de producto-->
+	<!--Inicio: Modal lateral detalle de pedido y sugerencias-->
+	<div class="mod producto-cust edz-300" id="family-diy-sugerencia" style="display:none">
+		<div class="mod-content cust-prod">
 
-            <button class="close-mod" ng-click="close_modal()"><img src="Assets/close-icon.png" /></button>
-            <div class="cust-it" id="grupo_opciones_sugerencia">
-                <div class="product-ph" id="img_s">
-                    <img style="width: 100%;" src="%7b%7bproducto_modal.html" />
-                </div>
-                <div class="customize-content-options">
-                    <div class="content-options-info">
-                        <h4>{{producto_modal.nombre}}</h4>
-                        <p>{{producto_modal.descripcion}}</p>
-                    </div>
-                    <hr />
-                    <div class="content-options-cat" ng-if="!grupo.oculto" ng-repeat="grupo in producto_modal.grupo_opciones" id="g{{grupo.id}}">
-                        <div class="mb-4">
-                            <h2>{{grupo.descripcion}}<span style="color: #6db23f; font-size: 13px; font-weight: 600; padding-left: 20px;" ng-if="grupo.requiere_seleccion">Obligatorio</span></h2>
-                            <span></span>
-                        </div>
+			<button class="close-mod" ng-click="close_modal()"><img src="Assets/close-icon.png" /></button>
+			<div class="cust-it" id="grupo_opciones_sugerencia">
+				<div class="product-ph" id="img_s">
+					<img style="width: 100%;" src="%7b%7bproducto_modal.html" />
+				</div>
+				<div class="customize-content-options">
+					<div class="content-options-info">
+						<h4>{{producto_modal.nombre}}</h4>
+						<p>{{producto_modal.descripcion}}</p>
+					</div>
+					<hr />
+					<div class="content-options-cat" ng-if="!grupo.oculto" ng-repeat="grupo in producto_modal.grupo_opciones"
+						id="g{{grupo.id}}">
+						<div class="mb-4">
+							<h2>{{grupo.descripcion}}<span
+									style="color: #6db23f; font-size: 13px; font-weight: 600; padding-left: 20px;"
+									ng-if="grupo.requiere_seleccion">Obligatorio</span></h2>
+							<span></span>
+						</div>
 
-                        <div class="" ng-if="!grupo.oculto" shk-select="{{grupo.max_selecciones}}">
-                            <button ng-if="opcion.disponible" ng-repeat="opcion in grupo.opciones" producto_seleccionado="opcion" ng-class="{'active':opcion.seleccionado}" max="{{grupo.max_selecciones != null}}" class="cust-op" shk-element status="{{opcion.seleccionado}}" ng-click="addOption(opcion, grupo)" id="{{opcion.id_pro}}">
-                                <h4>{{opcion.name}}</h4>
-                                <p>{{opcion.name2}}</p>
-                                <span ng-if="opcion.max_calories != 0">{{opcion.max_calories}} Cals</span> <span ng-if="grupo.descripcion != 'Quita:' && opcion.max_calories != 0 && opcion.cost != 0"> | </span> <span ng-if="grupo.descripcion != 'Quita:' && opcion.cost != 0">${{opcion.cost}}</span>
-                                <span ng-if="opcion.max_calories == 0"> &nbsp;  </span> <span ng-if="grupo.descripcion == 'Quita:' && opcion.max_calories == 0 && opcion.cost == 0"> </span> <span ng-if="grupo.descripcion == 'Quita:' && opcion.cost == 0"></span>
-
-
-                            </button>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-            <div class="customize-content-addcart">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert" ng-show="error_div">
-                    <strong>Selecciona una opción.</strong>
-                </div>
-                <div class="addcart-options">
-                    <p><b>{{totales.calorias}} Cals</b></p>
-                    <span>|</span>
-                    <div class="qty-wrapper">
-
-                        <span>Qty</span>
-                        <button class="btn btn-qty rem" ng-style="{'pointer-events':totales.cantidad > 1 ? 'auto' : 'none' }" ng-click="quitar_productos()">-</button>
-                        <span style="padding-left: 12px;">{{totales.cantidad}}</span>
-                        <button class="btn btn-qty add" ng-click="agregar_productos()">+</button>
-                    </div>
-                </div>
-                <button class="btn btn-ss btn-lg add_cart" id="add_producto_sugerencia" ng-click="addSugerencia()">Agregar al Carrito - ${{totales.total}} MXN</button>
-            </div>
+						<div class="" ng-if="!grupo.oculto" shk-select="{{grupo.max_selecciones}}">
+							<button ng-if="opcion.disponible" ng-repeat="opcion in grupo.opciones" producto_seleccionado="opcion"
+								ng-class="{'active':opcion.seleccionado}" max="{{grupo.max_selecciones != null}}" class="cust-op"
+								shk-element status="{{opcion.seleccionado}}" ng-click="addOption(opcion, grupo)" id="{{opcion.id_pro}}">
+								<h4>{{opcion.name}}</h4>
+								<p>{{opcion.name2}}</p>
+								<span ng-if="opcion.max_calories != 0">{{opcion.max_calories}} Cals</span> <span
+									ng-if="grupo.descripcion != 'Quita:' && opcion.max_calories != 0 && opcion.cost != 0"> | </span> <span
+									ng-if="grupo.descripcion != 'Quita:' && opcion.cost != 0">${{opcion.cost}}</span>
+								<span ng-if="opcion.max_calories == 0"> &nbsp; </span> <span
+									ng-if="grupo.descripcion == 'Quita:' && opcion.max_calories == 0 && opcion.cost == 0"> </span> <span
+									ng-if="grupo.descripcion == 'Quita:' && opcion.cost == 0"></span>
 
 
-        </div>
-    </div>
-    <!--Fin: Modal lateral detalle de pedido y sugerencias-->
-    <!--Inicio: Modal pedido vencido-->
-    <div class="mod" id="modal_pedido_error" style="display:none;">
-        <div class="mod-content mod-500">
-            <div class="pb-4 text">
-                <h1 style="text-align: center;font-weight: 400;">{{utilerias.mensaje_modal_pedido}}</h1>
-            </div>
-            <div class="py-4 text-center">
-                <button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="utilerias.cancelar_pedido()">Continuar</button>
-            </div>
-        </div>
-    </div>
-    <!--Fin: Modal pedido vencido-->
-    <!--Inicio: Modal pedido pagado-->
-    <div class="mod" id="modal_pedido_pagado" style="display:none;">
-        <div class="mod-content mod-500">
-            <div class="pb-4 text">
-                <h1 style="text-align: center;font-weight: 400;">
-
-                    {{utilerias.mensaje_modal_pedido}}
-                </h1>
-            </div>
-            <div class="py-4 text-center">
-                <button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="utilerias.cerrarModalPedidoPagado()">Cerrar</button>
-            </div>
-        </div>
-    </div>
-    <!--Fin: Modal pedido pagado-->
-    <!--Inicio: Modal pedido activo-->
-    <div class="mod" id="modal_pedido_activo" style="display:none;">
-        <div class="mod-content mod-500">
-            <div class="pb-4 text">
-                <h1 style="text-align: center;font-weight: 400;">{{mensaje_pedido_activo}}</h1>
-            </div>
-            <div class="py-4 text-center">
-                <button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="conservar_pedido()">Conservar pedido</button>
-                <button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="cancelar()">Cancelar</button>
-
-            </div>
-        </div>
-    </div>
-    <!--Fin: Modal pedido activo-->
-    <!--Inicio: Modal de carrito-->
-    <div class="mod" id="bag" style="display:none;">
-        <div class="mod-content bolsa">
-            <div>
-                <button class="close-mod" ng-click="closeBag()"><img src="Assets/close-icon.png" /></button>
-                <div class="shack-info" ng-if="existe_pedido()">
-                    <div class="py-3">
-                        <span>Recoger en:</span>
-                        <h2>{{pedido.tienda.nombre}}</h2>
-                        <p class="mb-2">{{pedido.tienda.direccion}}</p>
-                        <a href="#" class="btn-underlined" ng-click="cambiar_locacion()">Cambiar Shack</a>
-                    </div>
-                </div>
-                <div class="seleccionados" ng-if="existe_pedido()">
-                    <h3>Productos Seleccionados</h3>
-                    <div class="seleccionados-item" ng-repeat="producto in pedido.productos_agregados">
-                        <div>
-                            <div class="qty-prod">
-                                <button ng-click="show_modal_actualizar(producto)">{{producto.totales.cantidad}}</button>
-                                <button ng-click="show_modal_actualizar(producto)">{{producto.detalle.nombre}}</button>
-                            </div>
-                            <div ng-repeat="grupo in producto.detalle.grupo_opciones" ng-if="!grupo.oculto">
-                                <div class="especif" ng-repeat="opcion in grupo.opciones" ng-if="opcion.seleccionado">
-                                    <span> {{opcion.name}}</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="precio"><span>${{producto.totales.total}}</span></div>
-                        <div><button class="borrar" ng-click="eliminar_producto(pedido, producto)"><img src="Assets/close-icon.png" alt="eliminar de bolsa" /></button></div>
-                    </div>
-
-                </div>
-                <div class="bolsa-vacia" ng-if="!existe_pedido()">
-                    <div>
-                        <h1>
-                            <img src="Assets/Bolsa-vacia.png" alt="Tu bolsa está vacía" />
-                            <span style="display: block;">Tu bolsa está vacía</span>
-                        </h1>
-                        <p>Empieza agregando algo delicioso</p>
-                        <button class="btn btn-lg btn-dark w-100 mt-3" ng-click="closeBag()">Regresar</button>
-                    </div>
-                </div>
-                <div class="extra" ng-if="complementa_comida && existe_pedido()">
-                    <p>Complementa tu comida</p>
-
-                    <button class="extra-item" ng-repeat="producto in sugerencias" ng-click="show_modal_sugerencia(producto)" ng-if="!producto.deshabilitado">
-                        <img src="%7b%7bproducto.html" />
-                        <div class="extra-item-text">
-                            <h3>{{producto.nombre}}</h3>
-                            <span>{{producto.descripcion |limitTo:133}} <span ng-show="producto.descripcion.length > 133">...</span></span>
-                            <div class="product-item-footer">
-                                <span>{{producto.max_calories}} cals</span>
-                                <span>${{producto.costo}}</span>
-                            </div>
-                        </div>
-                    </button>
+							</button>
+						</div>
+					</div>
 
 
 
-                </div>
-            </div>
-            <div class="checkout-bolsa" ng-if="existe_pedido()">
-                <a class="btn btn-ss btn-lg checkout" id="" ng-click="checkout_pedido()" style="color:#ffffff">Checkout: <span ng-repeat="pago in pedido.pago" ng-if="pago.descripcion == 'Total'">Total ${{pago.cantidad}}</span></a>
-                <a class="btn btn-underlined" ng-click="regresar_menu(pedido.tienda.id_local)">Regresar al menú</a>
-            </div>
-        </div>
-    </div>
-    <!--Fin: Modal de carrito-->
-    <!--Inicio:Header-->
-    <div class="top-menu-order" ui-view="header" data-ga="header">
-        <div class="logo-wrapper">
-            <a class="menu-logo navbar-brand" href="#"><img src="Assets/ShakeShack_LOGO.png" /></a>
-        </div>
-        <div class="menu-order-actions">
-            <nav class="">
-                <div class="ul-tp">
-                    <div class="ul-tp-sub">
-                        <div ng-click="botonSeleccionado('inicio-sesión')" class="li-tp"><a href="Home/Contact.html">Inicia Sesi&#243;n</a></div>
-                        <div ng-click="botonSeleccionado('ver-cuenta')" class="li-tp" style="display: none;"><a href="Home/About.html">Cuenta</a></div>
-                    </div>
-                    <div class="li-tp">
-                        <button ng-click="botonSeleccionado('ver-carrito')" id="menu-bolsa" class="btn btn-ss btn-lg">Bolsa  <img src="Assets/bag_30x.png" /></button>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!--Fin:Header-->
-    <!--Inicio: Layout-->
-    <div class="pb-80" style="position: relative;" ui-view="principal" id="principal">
-        
+				</div>
+			</div>
+
+			<div class="customize-content-addcart">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert" ng-show="error_div">
+					<strong>Selecciona una opción.</strong>
+				</div>
+				<div class="addcart-options">
+					<p><b>{{totales.calorias}} Cals</b></p>
+					<span>|</span>
+					<div class="qty-wrapper">
+
+						<span>Qty</span>
+						<button class="btn btn-qty rem" ng-style="{'pointer-events':totales.cantidad > 1 ? 'auto' : 'none' }"
+							ng-click="quitar_productos()">-</button>
+						<span style="padding-left: 12px;">{{totales.cantidad}}</span>
+						<button class="btn btn-qty add" ng-click="agregar_productos()">+</button>
+					</div>
+				</div>
+				<button class="btn btn-ss btn-lg add_cart" id="add_producto_sugerencia" ng-click="addSugerencia()">Agregar al
+					Carrito - ${{totales.total}} MXN</button>
+			</div>
 
 
-    </div>
-    <!--Fin: Layout-->
-    <!--Inicio: Footer-->
-    <footer style="background-color: #000000 !important;margin-bottom:15px !important;">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 col-xl-2 offset-xl-4 text-left">
-                <a ui-sref="inicio.terminos"> Términos y Condiciones</a>
-                <a href="https://www.shakeshack.com.mx/privacidad/">Política de Privacidad</a>
-                <a ui-sref="inicio.faqs">FAQs</a>
-                <p class="d-none d-sm-block">&reg;2004 - 2024 SHAKE SHACK</p>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-left">
-                <a style="color:white !important;">Descarga nuestra app</a>
-                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://apps.apple.com/us/app/shake-shack-méxico/id6477545493" role="button" aria-disabled="true"><img src="Assets/apple-store.png" style="height:50px; width:auto;" /></a>
-                <a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank" href="https://play.google.com/store/apps/details?id=com.shakeshackmx.shackapp" role="button" aria-disabled="true"><img src="Assets/google-play.png" style="height:50px; width: auto;" /></a>
-                <p class="d-block d-sm-none mt-2 mb-4">&reg;2004 - 2024 SHAKE SHACK</p>
-            </div>
-        </div>
+		</div>
+	</div>
+	<!--Fin: Modal lateral detalle de pedido y sugerencias-->
+	<!--Inicio: Modal pedido vencido-->
+	<div class="mod" id="modal_pedido_error" style="display:none;">
+		<div class="mod-content mod-500">
+			<div class="pb-4 text">
+				<h1 style="text-align: center;font-weight: 400;">{{utilerias.mensaje_modal_pedido}}</h1>
+			</div>
+			<div class="py-4 text-center">
+				<button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100"
+					ng-click="utilerias.cancelar_pedido()">Continuar</button>
+			</div>
+		</div>
+	</div>
+	<!--Fin: Modal pedido vencido-->
+	<!--Inicio: Modal pedido pagado-->
+	<div class="mod" id="modal_pedido_pagado" style="display:none;">
+		<div class="mod-content mod-500">
+			<div class="pb-4 text">
+				<h1 style="text-align: center;font-weight: 400;">
 
-    </footer>
-    <!--Inicio: Footer-->
-    <!--Inicio: Scripts-->
-    <link href="Content/cssafter619d.css?v=1qL0Mjov9DoFZS8N-ku00wGwRvTXjXbcmq4cRSxrJGs1" rel="stylesheet"/>
+					{{utilerias.mensaje_modal_pedido}}
+				</h1>
+			</div>
+			<div class="py-4 text-center">
+				<button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100"
+					ng-click="utilerias.cerrarModalPedidoPagado()">Cerrar</button>
+			</div>
+		</div>
+	</div>
+	<!--Fin: Modal pedido pagado-->
+	<!--Inicio: Modal pedido activo-->
+	<div class="mod" id="modal_pedido_activo" style="display:none;">
+		<div class="mod-content mod-500">
+			<div class="pb-4 text">
+				<h1 style="text-align: center;font-weight: 400;">{{mensaje_pedido_activo}}</h1>
+			</div>
+			<div class="py-4 text-center">
+				<button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="conservar_pedido()">Conservar
+					pedido</button>
+				<button class="btn btn-ss btn-lg d-block mx-auto mb-2 w-100" ng-click="cancelar()">Cancelar</button>
 
-    <link href="Content/card-js.min.css" rel="stylesheet" />
-    
-    <script src='bundles/bootstrapfbc5?v=APNaV4UVBnOtVvyWFX-SYNvrcsepKaH8yU1vdoDjhk41' defer></script>
+			</div>
+		</div>
+	</div>
+	<!--Fin: Modal pedido activo-->
+	<!--Inicio: Modal de carrito-->
+	<div class="mod" id="bag" style="display:none;">
+		<div class="mod-content bolsa">
+			<div>
+				<button class="close-mod" ng-click="closeBag()"><img src="Assets/close-icon.png" /></button>
+				<div class="shack-info" ng-if="existe_pedido()">
+					<div class="py-3">
+						<span>Recoger en:</span>
+						<h2>{{pedido.tienda.nombre}}</h2>
+						<p class="mb-2">{{pedido.tienda.direccion}}</p>
+						<a href="#" class="btn-underlined" ng-click="cambiar_locacion()">Cambiar Shack</a>
+					</div>
+				</div>
+				<div class="seleccionados" ng-if="existe_pedido()">
+					<h3>Productos Seleccionados</h3>
+					<div class="seleccionados-item" ng-repeat="producto in pedido.productos_agregados">
+						<div>
+							<div class="qty-prod">
+								<button ng-click="show_modal_actualizar(producto)">{{producto.totales.cantidad}}</button>
+								<button ng-click="show_modal_actualizar(producto)">{{producto.detalle.nombre}}</button>
+							</div>
+							<div ng-repeat="grupo in producto.detalle.grupo_opciones" ng-if="!grupo.oculto">
+								<div class="especif" ng-repeat="opcion in grupo.opciones" ng-if="opcion.seleccionado">
+									<span> {{opcion.name}}</span>
+								</div>
 
-    <script src='bundles/angular8928?v=zcaGpxvCcvqoUubze_AVJ7tIIh_N93rCWRx1DCBq5HQ1' defer></script>
+							</div>
 
-    <script src='bundles/principal_94fb?v=hM_bxVvrNq1AADG1UvXsGg-Rl0ApCETlbM3TqG0n8I81' defer></script>
+						</div>
+						<div class="precio"><span>${{producto.totales.total}}</span></div>
+						<div><button class="borrar" ng-click="eliminar_producto(pedido, producto)"><img src="Assets/close-icon.png"
+									alt="eliminar de bolsa" /></button></div>
+					</div>
 
-    <script src='bundles/scripts1d7c?v=8-ZoVXegXUuCN9r9QqVmnPCVb2PrX4QvWFzl_htQXuY1' defer></script>
+				</div>
+				<div class="bolsa-vacia" ng-if="!existe_pedido()">
+					<div>
+						<h1>
+							<img src="Assets/Bolsa-vacia.png" alt="Tu bolsa está vacía" />
+							<span style="display: block;">Tu bolsa está vacía</span>
+						</h1>
+						<p>Empieza agregando algo delicioso</p>
+						<button class="btn btn-lg btn-dark w-100 mt-3" ng-click="closeBag()">Regresar</button>
+					</div>
+				</div>
+				<div class="extra" ng-if="complementa_comida && existe_pedido()">
+					<p>Complementa tu comida</p>
+
+					<button class="extra-item" ng-repeat="producto in sugerencias" ng-click="show_modal_sugerencia(producto)"
+						ng-if="!producto.deshabilitado">
+						<img src="%7b%7bproducto.html" />
+						<div class="extra-item-text">
+							<h3>{{producto.nombre}}</h3>
+							<span>{{producto.descripcion |limitTo:133}} <span
+									ng-show="producto.descripcion.length > 133">...</span></span>
+							<div class="product-item-footer">
+								<span>{{producto.max_calories}} cals</span>
+								<span>${{producto.costo}}</span>
+							</div>
+						</div>
+					</button>
 
 
-    <script async src="https://www.paypal.com/sdk/js?client-id=AZZT9Wz_6fCb7P5WQZWW4ParLmtdNok6zJkLaQCzg6RUK6KDK2_fooCfHm2Be6azzCbRUbTV_pHRkvks&amp;currency=MXN&amp;commit=true&amp;debug=false&amp;disable-funding=credit,card&amp;locale=es_MX"></script>
-    <!-- Tag manager -->
-    <script src="Scripts/owl.carousel.min.js"></script>
 
-    <script type='text/javascript'>
-        window.dataLayer = window.dataLayer || [];
-    </script>
+				</div>
+			</div>
+			<div class="checkout-bolsa" ng-if="existe_pedido()">
+				<a class="btn btn-ss btn-lg checkout" id="" ng-click="checkout_pedido()" style="color:#ffffff">Checkout: <span
+						ng-repeat="pago in pedido.pago" ng-if="pago.descripcion == 'Total'">Total ${{pago.cantidad}}</span></a>
+				<a class="btn btn-underlined" ng-click="regresar_menu(pedido.tienda.id_local)">Regresar al menú</a>
+			</div>
+		</div>
+	</div>
+	<!--Fin: Modal de carrito-->
+	<!--Inicio:Header-->
+	<div class="top-menu-order" ui-view="header" data-ga="header">
+		<div class="logo-wrapper">
+			<a class="menu-logo navbar-brand" href="#"><img src="Assets/ShakeShack_LOGO.png" /></a>
+		</div>
+		<div class="menu-order-actions">
+			<nav class="">
+				<div class="ul-tp">
+					<div class="ul-tp-sub">
+						<div ng-click="botonSeleccionado('inicio-sesión')" class="li-tp"><a href="Home/Contact.html">Inicia
+								Sesi&#243;n</a></div>
+						<div ng-click="botonSeleccionado('ver-cuenta')" class="li-tp" style="display: none;"><a
+								href="Home/About.html">Cuenta</a></div>
+					</div>
+					<div class="li-tp">
+						<button ng-click="botonSeleccionado('ver-carrito')" id="menu-bolsa" class="btn btn-ss btn-lg">Bolsa <img
+								src="Assets/bag_30x.png" /></button>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!--Fin:Header-->
+	<!--Inicio: Layout-->
+	<div class="pb-80" style="position: relative;" ui-view="principal" id="principal">
 
-    <!--Fin: Scripts-->
-    <!-- Instagram Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '562732445105792');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=562732445105792&amp;ev=PageView&amp;noscript=1" />
-    </noscript>
-    <!-- End Instagram Pixel Code -->
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '316397836700471');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=316397836700471&amp;ev=PageView&amp;noscript=1" />
-    </noscript>
-    <!-- End Facebook Pixel Code -->
-    <!-- Global site tag (gtag.js) - Google Ads: GTM-KTP2FDK -->
-    <!-- Google Tag Manager -->
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTP2FDK"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
 
-    <!-- End Google Tag Manager (noscript) -->
 
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KTP2FDK');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Global site tag (gtag.js) - Google Ads: GTM-KTP2FDK -->
-    
+	</div>
+	<!--Fin: Layout-->
+	<!--Inicio: Footer-->
+	<footer style="background-color: #000000 !important;margin-bottom:15px !important;">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-3 offset-lg-3 col-xl-2 offset-xl-4 text-left">
+				<a ui-sref="inicio.terminos"> Términos y Condiciones</a>
+				<a href="https://www.shakeshack.com.mx/privacidad/">Política de Privacidad</a>
+				<a ui-sref="inicio.faqs">FAQs</a>
+				<p class="d-none d-sm-block">&reg;2004 - 2024 SHAKE SHACK</p>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-left">
+				<a style="color:white !important;">Descarga nuestra app</a>
+				<a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank"
+					href="https://apps.apple.com/us/app/shake-shack-méxico/id6477545493" role="button" aria-disabled="true"><img
+						src="Assets/apple-store.png" style="height:50px; width:auto;" /></a>
+				<a class="btn border-1 border-white rounded bg-transparent p-0 mb-sm-5" target="_blank"
+					href="https://play.google.com/store/apps/details?id=com.shakeshackmx.shackapp" role="button"
+					aria-disabled="true"><img src="Assets/google-play.png" style="height:50px; width: auto;" /></a>
+				<p class="d-block d-sm-none mt-2 mb-4">&reg;2004 - 2024 SHAKE SHACK</p>
+			</div>
+		</div>
+
+	</footer>
+	<!--Inicio: Footer-->
+	<!--Inicio: Scripts-->
+	<link href="Content/cssafter619d.css?v=1qL0Mjov9DoFZS8N-ku00wGwRvTXjXbcmq4cRSxrJGs1" rel="stylesheet" />
+
+	<link href="Content/card-js.min.css" rel="stylesheet" />
+
+	<script src='bundles/bootstrapfbc5?v=APNaV4UVBnOtVvyWFX-SYNvrcsepKaH8yU1vdoDjhk41' defer></script>
+
+	<script src='bundles/angular8928?v=zcaGpxvCcvqoUubze_AVJ7tIIh_N93rCWRx1DCBq5HQ1' defer></script>
+
+	<script src='bundles/principal_94fb?v=hM_bxVvrNq1AADG1UvXsGg-Rl0ApCETlbM3TqG0n8I81' defer></script>
+
+	<script src='bundles/scripts1d7c?v=8-ZoVXegXUuCN9r9QqVmnPCVb2PrX4QvWFzl_htQXuY1' defer></script>
+
+
+	<script async
+		src="https://www.paypal.com/sdk/js?client-id=AZZT9Wz_6fCb7P5WQZWW4ParLmtdNok6zJkLaQCzg6RUK6KDK2_fooCfHm2Be6azzCbRUbTV_pHRkvks&amp;currency=MXN&amp;commit=true&amp;debug=false&amp;disable-funding=credit,card&amp;locale=es_MX"></script>
+	<!-- Tag manager -->
+	<script src="Scripts/owl.carousel.min.js"></script>
+
+	<script type='text/javascript'>
+		window.dataLayer = window.dataLayer || [];
+	</script>
+
+	<!--Fin: Scripts-->
+	<!-- Instagram Pixel Code -->
+	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+			n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '562732445105792');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=562732445105792&amp;ev=PageView&amp;noscript=1" />
+	</noscript>
+	<!-- End Instagram Pixel Code -->
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+			n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '316397836700471');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none"
+			src="https://www.facebook.com/tr?id=316397836700471&amp;ev=PageView&amp;noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Global site tag (gtag.js) - Google Ads: GTM-KTP2FDK -->
+	<!-- Google Tag Manager -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTP2FDK" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe>
+	</noscript>
+
+	<!-- End Google Tag Manager (noscript) -->
+
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-KTP2FDK');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Global site tag (gtag.js) - Google Ads: GTM-KTP2FDK -->
+
 
 </body>
 
 <!-- Mirrored from ordena.shakeshack.com.mx/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Nov 2024 04:57:41 GMT -->
+
 </html>
