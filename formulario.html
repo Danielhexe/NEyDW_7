@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información</title>
+</head>
+<body>
+    <h2>Informacion para tu pedido</h2>
+    <form action="http://localhost/Eq7/guardar_datos.php" method="POST">
+        <label for="nombre">Nombre Completo:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="telef">Teléfono (10 dígitos):</label><br>
+        <input type="text" id="telef" name="telef" pattern="[0-9]{10}" required><br><br>
+
+        <label for="direccion">Dirección:</label><br>
+        <input type="text" id="direccion" name="direccion" required><br><br>
+
+        <label for="numtarj">Número de Tarjeta (16 dígitos):</label><br>
+        <input type="text" id="numtarj" name="numtarj" pattern="[0-9]{16}" required><br><br>
+
+        <label for="ccv">CCV (3 dígitos):</label><br>
+        <input type="text" id="ccv" name="ccv" pattern="[0-9]{3}" required><br><br>
+
+        <label for="fechavenc">Fecha de Vencimiento (MMYY):</label><br>
+        <input type="text" id="fechavenc" name="fechavenc" pattern="[0-9]{4}" required><br><br>
+
+        <input type="submit" value="Enviar y hacer pedido">
+    </form>
+</body>
+</html>
