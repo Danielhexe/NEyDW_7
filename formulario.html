@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información</title>
+    <style>
+        /* Reset de estilo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .logo {
+            width: 60px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: white;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #4CAF50;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="./Imagenes/logoOrganicLab.jpg" alt="Logo de Organic Lab" class="logo">
+        <h1>Organic Lab</h1>
+    </div>
+    <h2>Información para tu pedido</h2>
+    <form action="http://localhost/Eq7/guardar_datos.php" method="POST">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telef">Teléfono (10 dígitos):</label>
+        <input type="text" id="telef" name="telef" pattern="[0-9]{10}" required>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
+
+        <label for="numtarj">Número de Tarjeta (16 dígitos):</label>
+        <input type="text" id="numtarj" name="numtarj" pattern="[0-9]{16}" required>
+
+        <label for="ccv">CCV (3 dígitos):</label>
+        <input type="text" id="ccv" name="ccv" pattern="[0-9]{3}" required>
+
+        <label for="fechavenc">Fecha de Vencimiento (MMYY):</label>
+        <input type="text" id="fechavenc" name="fechavenc" pattern="[0-9]{4}" required>
+
+        <input type="submit" value="Enviar y hacer pedido">
+    </form>
+</body>
+</html>
