@@ -1,0 +1,91 @@
+main{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    min-height: 70vh;
+}
+
+.carrito{
+    margin-top: 3rem;
+    width: 80%;
+    max-width: 50rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.1);
+}
+
+.producto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid #ddd;
+}
+
+.producto img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.4rem;
+}
+
+.info-producto{
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.info-producto p {
+    font-size: 0.8rem;
+    color: #666
+}
+
+.precio-producto {
+    text-align: right;
+}
+
+.precio-producto p {
+    font: 0.9rem;
+}
+
+.precio-producto span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.cantidad input {
+    width: 5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.4rem;
+}
+
+.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.boton-pago {
+    width: 100%;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1.5rem;
+}
