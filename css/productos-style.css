@@ -1,0 +1,56 @@
+/* Estilo general para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif; /* Fuente predeterminada de la página */
+}
+
+/* Botón del carrito de compras en la parte superior */
+.cart-btn {
+  background-color: #154536; /* Color de fondo del botón */
+  color: white; /* Color del texto dentro del botón */
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado interno del botón */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Título de las secciones (ejemplo: Alimentos, Proteínas) */
+.section-title {
+  background-color: #154536; /* Color de fondo del título de la sección */
+  color: white; /* Color del texto del título */
+  text-align: center; /* Centrar el texto del título */
+  padding: 10px; /* Espaciado interno */
+  margin-bottom: 20px; /* Separación con el contenido siguiente */
+  font-size: 1.5rem; /* Tamaño de la fuente del título */
+  font-weight: bold; /* Negrita para destacar el título */
+}
+
+/* Estilos para las imágenes dentro de las tarjetas de productos */
+.product-card img {
+  border: 5px solid #154536; /* Borde alrededor de las imágenes */
+  border-radius: 5px; /* Bordes redondeados para las imágenes */
+}
+
+/* Botón "Añadir al carrito" en las tarjetas de productos */
+.add-to-cart-btn {
+  background-color: #154536; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno del botón */
+  width: 100%; /* El botón ocupa todo el ancho del contenedor */
+}
+
+/* Efecto hover para el botón "Añadir al carrito" */
+.add-to-cart-btn:hover {
+  background-color: #0e3625; /* Cambiar el color de fondo al pasar el mouse */
+}
+
+/* Ajustes específicos para que las imágenes sean cuadradas */
+.product-card img {
+  border: 3px solid #154536; /* Borde alrededor de las imágenes */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+}
+
+.product-card{justify-content: center;}
