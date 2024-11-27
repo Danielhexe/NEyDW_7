@@ -40,7 +40,7 @@ while($row = $result_alimentos->fetch_assoc()) {
         'name' => $row['nomprod'],
         'quantity' => $row['cantidad'],
         'price' => $row['precio'],
-        'img' => 'Imagenes/' .$row['id'] . '.jpg',
+        'img' => $row['id'] . '.jpg',
     );
     $prodcuts[] = $prodcut;
 } 
@@ -52,7 +52,7 @@ while($row = $result_proteinas->fetch_assoc()) {
         'name' => $row['nomprod'],
         'quantity' => $row['gramaje'],
         'price' => $row['precio'],
-        'img' => 'Imagenes/' .$row['id'] . '.jpg',
+        'img' => $row['id'] . '.jpg',
     );
     $prodcuts[] = $prodcut;
 } 
