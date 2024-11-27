@@ -27,16 +27,7 @@
     </div>
   </main>
 
-  <script>
-    // Usamos fetch para obtener los productos desde el archivo PHP
-    fetch('obtener_productos.php')
-      .then(response => response.text())  // Usamos text() porque el PHP ya genera HTML
-      .then(data => {
-        // Insertar el contenido HTML generado en el div 'product-sections'
-        document.getElementById('product-sections').innerHTML = data;
-      })
-      .catch(error => console.error('Error al cargar los productos:', error));
-  </script>
+  <script src="productos.js"></script>
 </body>
 </html>
 
