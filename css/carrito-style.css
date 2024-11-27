@@ -65,12 +65,26 @@ main{
     width: 5rem;
     text-align: center;
     font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0;
+    margin: 0 0.5rem;
     border: 1px solid #ddd;
     border-radius: 0.4rem;
 }
 
-.total {
+.del-btn{
+    padding: 0.4rem 0.3rem;
+    background: #d1383a;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.del-btn:hover{
+    background: #a82d2f;
+}
+
+.cart-total {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: right;
@@ -88,4 +102,9 @@ main{
     cursor: pointer;
     text-align: center;
     margin-top: 1.5rem;
+}
+
+.carrito-vacio {
+    color: #777777;
+    text-align: center;
 }

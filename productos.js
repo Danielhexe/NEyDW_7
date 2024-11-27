@@ -26,7 +26,7 @@ fetch('obtener_productos.php')
             productContainer.classList.add('row', 'g-4', 'mb-4');
             groupedProducts[section].forEach((product) => {
 
-                const {id, img, brand, name, quantity, price } = product;
+                const {img, name, quantity, price } = product;
                 // Crear tarjeta de producto
                 const productCard = document.createElement('div');
                 productCard.classList.add('col-md-3', 'product-card');
@@ -54,7 +54,7 @@ fetch('obtener_productos.php')
     })
     .catch(error => console.error('Error al cargar los productos:', error))
 
-
+    // Agregar al carrito
     const addToCart = (product) => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
