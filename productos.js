@@ -68,8 +68,8 @@ const addToCart = (product) => {
         let productToCart = {...product, quantityInCart: 1};
         cart.push(productToCart)
     }
-    updateCartSizeNotification();
     localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSizeNotification();
 }
 
 const updateCartSizeNotification = () => {

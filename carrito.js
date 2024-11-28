@@ -102,6 +102,7 @@ const handleDeleteProduct = (event) => {
     localStorage.setItem('cart', JSON.stringify(cart));
 
     updateCartSizeNotification();
+    updateCartTotal()
     renderCart();
     addListeners();
 }
