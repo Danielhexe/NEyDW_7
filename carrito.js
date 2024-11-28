@@ -119,6 +119,13 @@ const updateCartSizeNotification = () => {
     }
 }
 
+const checkout = () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if(cart.length > 0){
+        window.location.href = './formulario.html';
+    }
+}
+
 updateCartSizeNotification();
 renderCart();
 addListeners();
