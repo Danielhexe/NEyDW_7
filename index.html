@@ -34,6 +34,7 @@
 		<a href="carrito.html">
 			<button class="cart-btn">
 			<img src="https://img.icons8.com/ios-filled/24/FFFFFF/shopping-cart.png" alt="Carrito">
+			<p class="cart-size">0</p>
 			Ir al carrito de compras
 			</button>
 		</a>
@@ -62,6 +63,20 @@
 	<p>Consulta más información en: <a href="https://www.gob.mx/profeco/documentos/alimentos-organicos" target="_blank">https://www.gob.mx/profeco/documentos/alimentos-organicos</a></p>
 
 	</main>
+	<script>
+		const updateCartSizeNotification = () => {
+			let cart = JSON.parse(localStorage.getItem('cart')) || [];
+			const size = cart.length;
+			const notification = document.querySelector('.cart-size');
+			if(size > 0){
+				notification.style.visibility = 'visible';
+				notification.innerHTML = size;
+			}else{
+				notification.style.visibility = 'hidden';
+			}
+		}
+		updateCartSizeNotification();
+	</script>
 </body>
 
 </html>

@@ -85,28 +85,39 @@ const updateProductTotalPrice = (index) => {
 }
 
 const updateCartTotal = () => {
-    console.log("dafuq");
     let total = 0;
     cart.forEach(product => {
         total += product.quantityInCart * product.price;
     });
     const cartTotalElement = document.querySelector('.cart-total');
-    console.log(cartTotalElement);
     if (cartTotalElement) {
         cartTotalElement.innerHTML = `Total: ${priceFormatter.format(total)}`;
     }
 }
 
 const handleDeleteProduct = (event) => {
-    console.log("que");
     const index = parseInt(event.target.getAttribute('data-index'));
     cart.splice(index, 1);
 
     localStorage.setItem('cart', JSON.stringify(cart));
 
+    updateCartSizeNotification();
     renderCart();
     addListeners();
 }
 
+const updateCartSizeNotification = () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const size = cart.length;
+    const notification = document.querySelector('.cart-size');
+    if(size > 0){
+        notification.style.visibility = 'visible';
+        notification.innerHTML = size;
+    }else{
+        notification.style.visibility = 'hidden';
+    }
+}
+
+updateCartSizeNotification();
 renderCart();
 addListeners();

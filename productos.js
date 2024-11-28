@@ -1,4 +1,3 @@
-// Datos simulados con atributo "section"
 const priceFormatter = new Intl.NumberFormat('es-MX', {
     style: 'currency',
     currency: 'MXN'
@@ -58,17 +57,30 @@ fetch('obtener_productos.php')
     })
     .catch(error => console.error('Error al cargar los productos:', error))
 
-    // Agregar al carrito
-    const addToCart = (product) => {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// Agregar al carrito
+const addToCart = (product) => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        const existingProduct = cart.find(p => p.id === product.id);
-        if(existingProduct) {
-            existingProduct.quantityInCart += 1;
-        }else{
-            let productToCart = {...product, quantityInCart: 1};
-            cart.push(productToCart)
-        }
-
-        localStorage.setItem('cart', JSON.stringify(cart));
+    const existingProduct = cart.find(p => p.id === product.id);
+    if(existingProduct) {
+        existingProduct.quantityInCart += 1;
+    }else{
+        let productToCart = {...product, quantityInCart: 1};
+        cart.push(productToCart)
     }
+    updateCartSizeNotification();
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+const updateCartSizeNotification = () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const size = cart.length;
+    const notification = document.querySelector('.cart-size');
+    if(size > 0){
+        notification.style.visibility = 'visible';
+        notification.innerHTML = size;
+    }else{
+        notification.style.visibility = 'hidden';
+    }
+}
+updateCartSizeNotification();
