@@ -1,4 +1,8 @@
 // Datos simulados con atributo "section"
+const priceFormatter = new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'MXN'
+});
 
 fetch('obtener_productos.php')
     .then(res => res.json())
@@ -36,7 +40,7 @@ fetch('obtener_productos.php')
                         <div class="card-body text-align: left">
                             <p>Producto: ${name}</p>
                             <p>Cantidad: ${quantity}</p>
-                            <p class="fw-bold">Precio: ${price}</p>
+                            <p class="fw-bold">Precio: ${priceFormatter.format(price)}</p>
                             <button class="add-to-cart-btn">Añadir al carrito</button>
                         </div>
                     </div>
